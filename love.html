@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Наше обещание</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="bg-hearts">
+    <span>💗</span><span>💖</span><span>💕</span><span>💘</span>
+  </div>
+
+  <header>
+    <h1 >I know that you would have clicked 'Yes' anyway 😏</h1>
+    <p>I always want you to be happy, and I promise to do everything to make it happen! 💞</p>
+  </header>
+
+  <main>
+    <section class="love-page">
+      <div class="love-card">
+        <h2>Your eyes are the most beautiful 😍</h2>
+        <p>ну вот и всё, мой англш закончился, с этого момента только так, йоу😎</p>
+        <div class="promise">
+          <p>Обещаю быть рядом, любить и поддерживать тебя во всем.</p>
+          <p>хочу делать тебя счастливой каждый день.</p>
+        </div>
+        <button onclick="location.href='index.html'">Вернуться назад</button>
+        
+      </div>
+    </section>
+  </main>
+
+  <footer>© 2026 — вечная любовь 💞</footer>
+
+  <script>
+    const loveTitle = document.getElementById('loveTitle');
+    const colors = ['🟥', '🟧', '🟨', '🟩', '🟦', '🟪', '🟫'];
+
+    loveTitle.addEventListener('mouseenter', (e) => {
+      const rect = loveTitle.getBoundingClientRect();
+      const centerX = rect.left + rect.width / 2;
+      const centerY = rect.top + rect.height / 2;
+
+      for (let i = 0; i < 12; i++) {
+        const cube = document.createElement('div');
+        cube.className = 'rainbow-cube';
+        cube.textContent = colors[Math.floor(Math.random() * colors.length)];
+
+        const angle = (i / 12) * Math.PI * 2;
+        const distance = 80 + Math.random() * 60;
+        const tx = Math.cos(angle) * distance;
+        const ty = Math.sin(angle) * distance;
+
+        cube.style.setProperty('--tx', tx + 'px');
+        cube.style.setProperty('--ty', ty + 'px');
+        cube.style.left = centerX + 'px';
+        cube.style.top = centerY + 'px';
+
+        document.body.appendChild(cube);
+        setTimeout(() => cube.remove(), 1300);
+      }
+    });
+  </script>
+</body>
+</html>
